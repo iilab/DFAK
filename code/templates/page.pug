@@ -1,0 +1,18 @@
+extends html
+
+block main
+  nav
+    ul
+      each item in ['SecureCommunication','AccountHijacking','DevicesSeized','Malware','DDoSMitigation','Glossary','Resources']
+        each page in collections.pages
+          if (page.basename == item && page.language == language)
+            li
+              a(href=site.baseurl+page.permalink, alt=item)= page.title
+
+  .post
+    header.post-header
+      h1.post-title= title
+    article.post-content
+      != contents
+
+  include includes/links

@@ -1,0 +1,19 @@
+name: Digital First Aid Kit
+packages:
+  dfak: DFAK
+
+# This will deploy the workspaces when using `dfak init`.
+workspace:
+  '@dfak/preview':
+    start: preview.yml
+    preview: web
+  '@dfak/mobile':
+    start: mobile.yml
+    preview: mobile
+  #   # can be used with metalsmith-symlink to override activities folder with migration folder
+  #   # packages:
+  #   #   activities: activities
+  #   # main: index.md
+  #   # # An `edit` mode should create symlinks and handle git and packaging workflow.
+  #   # mode: view
+  #   build: build.yml
