@@ -41,7 +41,7 @@
     "metalsmith-migrate-safetag": "^0.1.7",
     "metalsmith-packagejson": "^1.1.0",
     "metalsmith-packages": "^0.1.0",
-    "metalsmith-pandoc": "^0.2.3",
+    "metalsmith-pandoc": "^0.2.4",
     "metalsmith-paths": "^3.0.1",
     "metalsmith-permalinks": "github:contentascode/metalsmith-permalinks",
     "metalsmith-remark-lint": "0.0.5",
