@@ -1,6 +1,6 @@
 name: Digital First Aid Kit
 packages:
-  dfak: DFAK
+  dfak: dfak
 
 # This will deploy the workspaces when using `dfak init`.
 workspace:
