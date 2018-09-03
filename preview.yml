@@ -120,8 +120,6 @@ plugins:
 
   - metalsmith-sass:
       sources: './code/css'
-      includePaths :
-        - '/Users/jun/dev/DFAK/DFAK/code/css/_sass'
       outputDir: './css/'
       outputStyle: "expanded"
 
