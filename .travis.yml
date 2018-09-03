@@ -1,0 +1,42 @@
+language: node_js
+node_js:
+  - '7'
+os:
+- linux
+
+# Add ons to allow nodegit to compile
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - libstdc++-4.9-dev
+
+install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget https://github.com/jgm/pandoc/releases/download/1.19.2.1/pandoc-1.19.2.1-1-amd64.deb; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo dpkg -i pandoc-1.19.2.1-1-amd64.deb; fi
+  - npm i -g docsmith@beta
+  - npm i -g dfak-cli
+
+script:
+  - mkdir workspace && cd workspace
+  - dfak init --non-interactive
+  - dfak config
+  # Build website
+  - dfak start --clean --no-watch --baseurl /dfak-cli/@dfak/preview
+
+deploy:
+  - provider: pages
+    keep-history: true
+    allow-empty-commit: true
+    local_dir: ../../../.content/build
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+    on:
+      branch: master
+
+branches:
+  only:
+  - master
+  except:
+    - /^v[0-9]/
