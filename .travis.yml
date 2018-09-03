@@ -30,9 +30,8 @@ script:
   - git checkout -- .
   - cd $TRAVIS_BUILD_DIR/workspace
   # Build website from master branch at /master.
-  - dfak start --clean --no-watch --baseurl /DFAK/master
-  - mkdir -p $HOME/.content/build/master
-  - mv $HOME/.content/build/@dfak/preview/* $HOME/.content/build/master
+  - dfak start --clean --no-watch --baseurl /DFAK/@dfak/master
+  - mv $HOME/.content/build/@dfak/preview $HOME/.content/build/@dfak/master
 
 deploy:
   - provider: pages
