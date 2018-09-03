@@ -23,13 +23,13 @@ script:
   - dfak init --non-interactive
   - dfak config
   # Build website
-  - dfak start --clean --no-watch --baseurl /DFAK/@dfak/preview
+  - dfak start --clean --no-watch --baseurl /DFAK
 
 deploy:
   - provider: pages
     keep-history: true
     allow-empty-commit: true
-    local_dir: ../../../.content/build
+    local_dir: ../../../.content/build/@dfak/preview
     skip_cleanup: true
     github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
     on:
