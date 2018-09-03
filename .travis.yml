@@ -22,14 +22,23 @@ script:
   - mkdir workspace && cd workspace
   - dfak init --non-interactive
   - dfak config
-  # Build website
+  # Build website from published tag.
   - dfak start --clean --no-watch --baseurl /DFAK
+  - mv $HOME/.content/build/@dfak/preview/* $HOME/.content/build
+  # Checkout master branch
+  - cd $HOME/.content/packages/dfak
+  - git checkout -- .
+  - cd $TRAVIS_BUILD_DIR/workspace
+  # Build website from master branch at /master.
+  - dfak start --clean --no-watch --baseurl /DFAK/master
+  - mkdir -p $HOME/.content/build/master
+  - mv $HOME/.content/build/@dfak/preview/* $HOME/.content/build/master
 
 deploy:
   - provider: pages
     keep-history: true
     allow-empty-commit: true
-    local_dir: ../../../.content/build/@dfak/preview
+    local_dir: ../../../.content/build
     skip_cleanup: true
     github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
     on:
