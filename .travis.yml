@@ -23,7 +23,7 @@ script:
   - dfak init --non-interactive
   - dfak config
   # Build website
-  - dfak start --clean --no-watch --baseurl /dfak-cli/@dfak/preview
+  - dfak start --clean --no-watch --baseurl /DFAK/@dfak/preview
 
 deploy:
   - provider: pages
